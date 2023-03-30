@@ -22,8 +22,18 @@ export default class block extends cc.Component {
 
     public init(fallDuration: number, fallHeight: number, destroyTime: number, destroyCb: Function) {
         this.scheduleOnce(() => {
-            let fallAction = cc.moveBy(fallDuration, cc.v2(0, -fallHeight)); // 下沉动作
-            this.node.runAction(fallAction);
+            // let fallAction = cc.moveBy(fallDuration, cc.v2(0, -fallHeight)); // 下沉动作
+            // this.node.runAction(fallAction);
+
+            this.node.qtPositionY(-fallHeight, fallDuration, {
+                onStart: ()=> {
+                    // console.log('begin');
+                },
+                onComplete: ()=> {
+                    // console.log('end');
+                }
+            }).start();
+
             destroyCb();
         }, destroyTime);
     }

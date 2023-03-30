@@ -98,9 +98,19 @@ export default class Stage extends cc.Component {
     private moveStage(step: number) {
         // let moveAction = cc.moveBy(this.jumpDuration, cc.v2(-this.stepDistance * step, 0));
         // this.node.runAction(moveAction);
-        // for (let i = 0; i < step; i++) {
-        //     this.randomAddBlock();
-        // }
+
+        this.node.qtPositionX(-this.stepDistance * (step+1), this.jumpDuration, {
+            onStart: ()=> {
+                // console.log('begin');
+            },
+            onComplete: ()=> {
+                // console.log('end');
+            }
+        }).start();
+
+        for (let i = 0; i < step; i++) {
+            this.randomAddBlock();
+        }
     }
 
     private randomAddBlock() {
