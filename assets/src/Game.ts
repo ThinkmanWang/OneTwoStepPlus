@@ -27,6 +27,7 @@ export default class Game extends cc.Component {
 
     protected start() {
         this.startGame();
+
         this.m_lstEventId.push(bus.on("Game.PlayerDie", () => {
             this.onGameOver();
         }));
@@ -37,6 +38,10 @@ export default class Game extends cc.Component {
 
         this.m_lstEventId.push(bus.on("Game.ReturnMenu", () => {
             this.onReturnMenu();
+        }));
+
+        this.m_lstEventId.push(bus.on("Game.AddScore", (nScore) => {
+            this.addScore(nScore);
         }));
     }
 
@@ -55,7 +60,9 @@ export default class Game extends cc.Component {
 
     public addScore(n: number) {
         this.score += n;
-        this.scoreLabel.string = this.score + '';
+        if (this.scoreLabel != null) {
+            this.scoreLabel.string = this.score + '';
+        }
     }
 
     public startGame() {

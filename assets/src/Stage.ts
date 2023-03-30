@@ -48,10 +48,10 @@ export default class Stage extends cc.Component {
 
     private stayDuration: number; // 停留时间
 
-    private game: Game = null;
+    // private game: Game = null;
 
     public init(game: Game) {
-        this.game = game;
+        // this.game = game;
         this.stayDuration = this.initStayDuration;
         this.player.init(this.stepDistance, this.jumpHeight, this.jumpDuration, this.fallDuration, this.fallHeight);
         this.blockList = [];
@@ -90,7 +90,9 @@ export default class Stage extends cc.Component {
                         // this.game.overGame();
                     }
                 });
-                this.game.addScore(step === 1 ? 1 : 3);
+
+                bus.emit("Game.AddScore", step === 1 ? 1 : 3);
+                // this.game.addScore(step === 1 ? 1 : 3);
             }
             if (this.player.index % 10 === 0) {
                 this.addSpeed();
