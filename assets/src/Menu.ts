@@ -5,11 +5,11 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/2.4/manual/en/scripting/life-cycle-callbacks.html
 
-const {ccclass, property} = cc._decorator;
 import * as cc from 'cc';
+const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class Main extends cc.Component {
+export default class Menu extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
 
