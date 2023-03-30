@@ -36,13 +36,13 @@ export default class Game extends cc.Component {
         this.score = 0;
         this.scoreLabel.string = '0';
         this.stage.init(this);
-        this.overPanel.init(this);
-        this.overPanel.hide();
+        // this.overPanel.init(this);
+        // this.overPanel.hide();
     }
 
     public overGame() {
         cc.log('game over');
-        this.overPanel.show(this.score);
+        // this.overPanel.show(this.score);
     }
 
     public restartGame() {

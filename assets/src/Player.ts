@@ -41,6 +41,15 @@ export default class Player extends cc.Component {
         this.canJump = false;
         this.index += step;
 
+        this.node.qtJumpPosition(cc.v3(step * this.stepDistance, 0, 0), this.jumpHeight, 1, this.jumpDuration, {
+            onStart: ()=> {
+                console.log('begin');
+            },
+            onComplete: ()=> {
+                console.log('end');
+            }
+        }).start();
+
         // var anim = this.getComponent(cc.Animation);
         // anim.play("")
 
