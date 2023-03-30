@@ -116,7 +116,7 @@ export default class Stage extends cc.Component {
         let blockNode = cc.instantiate(this.blockPrefab);
         console.log(blockNode);
 
-        this.node.addChild(blockNode, 1, "");
+        this.node.addChild(blockNode);
         blockNode.position = position;
         this.blockList.push(blockNode.getComponent(Block));
         this.lastBlock = true;

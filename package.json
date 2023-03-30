@@ -3,5 +3,9 @@
   "uuid": "e7ced90d-9a5e-419d-9e82-d328e3041fb4",
   "creator": {
     "version": "3.7.2"
+  },
+  "dependencies": {
+    "iny-bus": "^2.0.0",
+    "jsbi": "^4.3.0"
   }
 }
