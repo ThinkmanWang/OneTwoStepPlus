@@ -96,11 +96,11 @@ export default class Stage extends cc.Component {
     }
 
     private moveStage(step: number) {
-        let moveAction = cc.moveBy(this.jumpDuration, cc.v2(-this.stepDistance * step, 0));
-        this.node.runAction(moveAction);
-        for (let i = 0; i < step; i++) {
-            this.randomAddBlock();
-        }
+        // let moveAction = cc.moveBy(this.jumpDuration, cc.v2(-this.stepDistance * step, 0));
+        // this.node.runAction(moveAction);
+        // for (let i = 0; i < step; i++) {
+        //     this.randomAddBlock();
+        // }
     }
 
     private randomAddBlock() {

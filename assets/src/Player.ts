@@ -40,19 +40,24 @@ export default class Player extends cc.Component {
 
         this.canJump = false;
         this.index += step;
-        let jumpAction = cc.jumpBy(this.jumpDuration, cc.v2(step * this.stepDistance, 0), this.jumpHeight, 1);
-        let finishAction = cc.callFunc(() => {
-            this.canJump = true;
-        });
-        this.node.runAction(cc.sequence(jumpAction, finishAction));
+
+        // var anim = this.getComponent(cc.Animation);
+        // anim.play("")
+
+        
+        // let jumpAction = cc.ccju(this.jumpDuration, cc.v2(step * this.stepDistance, 0), this.jumpHeight, 1);
+        // let finishAction = cc.callFunc(() => {
+        //     this.canJump = true;
+        // });
+        // this.node.runAction(cc.sequence(jumpAction, finishAction));
     }
 
     public die() {
         cc.log('我死了');
 
         this.canJump = false;
-        let dieAction = cc.moveBy(this.fallDuration, cc.v2(0, -this.fallHeight));
-        this.node.runAction(dieAction);
+        // let dieAction = cc.moveBy(this.fallDuration, cc.v2(0, -this.fallHeight));
+        // this.node.runAction(dieAction);
     }
 
     start () {
