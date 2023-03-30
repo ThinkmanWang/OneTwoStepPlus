@@ -9,6 +9,7 @@ import * as cc from 'cc';
 import Game from './Game';
 import Player from './Player';
 import Block from './Block';
+import bus from 'iny-bus'
 
 const {ccclass, property} = cc._decorator;
 
@@ -77,14 +78,16 @@ export default class Stage extends cc.Component {
                 cc.log('die');
                 this.scheduleOnce(() => { // 这时还在空中，要等到落到地面在执行死亡动画
                     this.player.die();
-                    this.game.overGame();
+                    bus.emit("Game.PlayerDie");
+                    // this.game.overGame();
                 }, this.jumpDuration);
             } else {
                 let blockIndex = this.player.index;
                 this.blockList[blockIndex].init(this.fallDuration, this.fallHeight, this.stayDuration, () => { 
                     if (this.player.index === blockIndex) { // 如果Block下落时玩家还在上面游戏结束
                         this.player.die();
-                        this.game.overGame();
+                        bus.emit("Game.PlayerDie");
+                        // this.game.overGame();
                     }
                 });
                 this.game.addScore(step === 1 ? 1 : 3);

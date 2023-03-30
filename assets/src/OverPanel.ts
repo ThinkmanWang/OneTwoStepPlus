@@ -7,6 +7,7 @@
 
 import * as cc from 'cc';
 import Game from "./Game";
+import bus from 'iny-bus';
 
 const {ccclass, property} = cc._decorator;
 
@@ -32,11 +33,13 @@ export default class NewClass extends cc.Component {
     }
 
     private onBtnRestart() {
-        this.game.restartGame();
+        bus.emit("Game.RestartGame");
+        // this.game.restartGame();
     }
 
     private onBtnReturnMenu() {
-        this.game.returnMenu();
+        bus.emit("Game.ReturnMenu");
+        // this.game.returnMenu();
     }
 
     public show(score: number) {

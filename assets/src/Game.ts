@@ -8,6 +8,7 @@
 import * as cc from 'cc';
 import Stage from "./Stage";
 import OverPanel from "./OverPanel"
+import bus from 'iny-bus'
 
 const {ccclass, property} = cc._decorator;
 
@@ -22,9 +23,34 @@ export default class Game extends cc.Component {
     private overPanel: OverPanel = null;
 
     private score: number = 0;
+    private m_lstEventId: string[] = [] 
 
     protected start() {
         this.startGame();
+        this.m_lstEventId.push(bus.on("Game.PlayerDie", () => {
+            this.onGameOver();
+        }));
+
+        this.m_lstEventId.push(bus.on("Game.RestartGame", () => {
+            this.onRestartGame();
+        }));
+
+        this.m_lstEventId.push(bus.on("Game.ReturnMenu", () => {
+            this.onReturnMenu();
+        }));
+    }
+
+    onDestroy() {
+        console.log("remove event");
+
+        while (true) {
+            var szEventId: string = this.m_lstEventId.pop();
+            if (undefined == szEventId) {
+                break;
+            }
+
+            bus.remove("Game.Start", szEventId);
+        }
     }
 
     public addScore(n: number) {
@@ -40,18 +66,33 @@ export default class Game extends cc.Component {
         this.overPanel.hide();
     }
 
-    public overGame() {
-        cc.log('game over');
-        this.overPanel.show(this.score);
+    public onGameOver() {
+        cc.log('on game over');
+        if (this.overPanel != null) {
+            this.overPanel.show(this.score);
+        }
     }
 
-    public restartGame() {
+    public onRestartGame() {
         cc.director.loadScene('Game');
     }
 
-    public returnMenu() {
+    public onReturnMenu() {
         cc.director.loadScene('Menu');
     }
+
+    // public overGame() {
+    //     cc.log('game over');
+    //     this.overPanel.show(this.score);
+    // }
+
+    // public restartGame() {
+    //     cc.director.loadScene('Game');
+    // }
+
+    // public returnMenu() {
+    //     cc.director.loadScene('Menu');
+    // }
 
     private onBtnOne() {
         this.stage.playerJump(1);

@@ -16,8 +16,8 @@ export default class block extends cc.Component {
     // onLoad () {}
 
     start () {
-        console.log("start block");
-        cc.log("start block");
+        // console.log("start block");
+        // cc.log("start block");
     }
 
     public init(fallDuration: number, fallHeight: number, destroyTime: number, destroyCb: Function) {
