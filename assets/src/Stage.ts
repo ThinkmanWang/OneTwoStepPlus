@@ -99,7 +99,7 @@ export default class Stage extends cc.Component {
         // let moveAction = cc.moveBy(this.jumpDuration, cc.v2(-this.stepDistance * step, 0));
         // this.node.runAction(moveAction);
 
-        this.node.qtPositionX(-this.stepDistance * (step+1), this.jumpDuration, {
+        this.node.qtPositionX(-this.stepDistance * step, this.jumpDuration, {
             onStart: ()=> {
                 // console.log('begin');
             },
