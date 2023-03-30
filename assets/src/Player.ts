@@ -50,16 +50,6 @@ export default class Player extends cc.Component {
                 this.canJump = true;
             }
         }).start();
-
-        // var anim = this.getComponent(cc.Animation);
-        // anim.play("")
-
-        
-        // let jumpAction = cc.ccju(this.jumpDuration, cc.v2(step * this.stepDistance, 0), this.jumpHeight, 1);
-        // let finishAction = cc.callFunc(() => {
-        //     this.canJump = true;
-        // });
-        // this.node.runAction(cc.sequence(jumpAction, finishAction));
     }
 
     public die() {
@@ -74,9 +64,6 @@ export default class Player extends cc.Component {
                 console.log('end');
             }
         }).start();
-
-        // let dieAction = cc.moveBy(this.fallDuration, cc.v2(0, -this.fallHeight));
-        // this.node.runAction(dieAction);
     }
 
     start () {

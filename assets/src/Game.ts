@@ -88,19 +88,6 @@ export default class Game extends cc.Component {
         cc.director.loadScene('Menu');
     }
 
-    // public overGame() {
-    //     cc.log('game over');
-    //     this.overPanel.show(this.score);
-    // }
-
-    // public restartGame() {
-    //     cc.director.loadScene('Game');
-    // }
-
-    // public returnMenu() {
-    //     cc.director.loadScene('Menu');
-    // }
-
     private onBtnOne() {
         this.stage.playerJump(1);
     }

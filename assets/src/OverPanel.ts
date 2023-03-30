@@ -29,17 +29,14 @@ export default class NewClass extends cc.Component {
     // update (dt) {}
 
     public init() {
-        // this.game = game;
     }
 
     private onBtnRestart() {
         bus.emit("Game.RestartGame");
-        // this.game.restartGame();
     }
 
     private onBtnReturnMenu() {
         bus.emit("Game.ReturnMenu");
-        // this.game.returnMenu();
     }
 
     public show(score: number) {
