@@ -69,7 +69,7 @@ export default class Game extends cc.Component {
         this.score = 0;
         this.scoreLabel.string = '0';
         this.stage.init(this);
-        this.overPanel.init(this);
+        this.overPanel.init();
         this.overPanel.hide();
     }
 

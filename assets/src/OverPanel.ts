@@ -17,7 +17,7 @@ export default class NewClass extends cc.Component {
     @property(cc.Label)
     m_labScore: cc.Label = null;
 
-    private game: Game;
+    // private game: Game;
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
@@ -28,8 +28,8 @@ export default class NewClass extends cc.Component {
 
     // update (dt) {}
 
-    public init(game: Game) {
-        this.game = game;
+    public init() {
+        // this.game = game;
     }
 
     private onBtnRestart() {
