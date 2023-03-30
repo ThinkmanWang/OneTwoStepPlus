@@ -66,14 +66,14 @@ export default class Player extends cc.Component {
         cc.log('我死了');
 
         this.canJump = false;
-        // this.node.qtJumpPosition(cc.v3(0, -this.fallHeight, 0), -this.fallHeight, 1, this.fallDuration, {
-        //     onStart: ()=> {
-        //         console.log('begin');
-        //     },
-        //     onComplete: ()=> {
-        //         console.log('end');
-        //     }
-        // }).start();
+        this.node.qtJumpPosition(cc.v3(0, this.node.position.y-this.fallHeight, 0), -this.fallHeight, 1, this.fallDuration, {
+            onStart: ()=> {
+                console.log('begin');
+            },
+            onComplete: ()=> {
+                console.log('end');
+            }
+        }).start();
 
         // let dieAction = cc.moveBy(this.fallDuration, cc.v2(0, -this.fallHeight));
         // this.node.runAction(dieAction);
